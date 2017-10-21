@@ -21,10 +21,10 @@ def getData():
     except Exception as exception:
         logging.exception("Error in retrieving data")
 
-def getBatch1(X,Y,i,batch_size):
+def getBatch1(X,Y,i,batchSize):
 
     oneHotLabels = []
-    for label in Y[i * batch_size:i * batch_size + batch_size]:
+    for label in Y[i * batchSize:i * batchSize + batchSize]:
         y = np.zeros((6), dtype=float)
         if label == 0:
             y[0] = 1.
@@ -39,7 +39,7 @@ def getBatch1(X,Y,i,batch_size):
         elif label == 5:
             y[5] = 1.
         oneHotLabels.append(y)
-    return [X[i * batch_size:i * batch_size + batch_size], np.array(oneHotLabels)]
+    return [X[i * batchSize:i * batchSize + batchSize], np.array(oneHotLabels)]
 
 
 def neuralNetwork(X, Y, lengthOfVector):
